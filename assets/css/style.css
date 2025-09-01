@@ -1,0 +1,254 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #fff;
+  color: #000;
+}
+
+/* ======================
+   MENU TOPO
+====================== */
+.menu-site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 16px;
+  background-color: #fff;
+  border-bottom: 1px solid #ddd;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.menu-esquerda {
+  display: flex;
+  align-items: center;
+}
+
+.hamburguer-btn {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 24px;
+  height: 18px;
+  margin-right: 16px;
+  cursor: pointer;
+  background: none;
+  border: none;
+}
+
+.hamburguer-btn span {
+  display: block;
+  height: 3px;
+  background-color: #333;
+  border-radius: 2px;
+}
+
+.logo {
+  width: 90px;
+}
+
+.busca-site {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.busca-input {
+  width: 50%;
+  max-width: 500px;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 2px 0 0 2px;
+  outline: none;
+}
+
+.busca-btn {
+  padding: 6px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f8f8;
+  border: 1px solid #ccc;
+  border-left: none;
+  border-radius: 0 2px 2px 0;
+  cursor: pointer;
+}
+
+.busca-btn img {
+  width: 20px;  
+  height: 20px; 
+  object-fit: contain; 
+}
+
+.usuario-menu {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.usuario-menu .icone {
+  width: 28px;
+  height: 28px;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.usuario-perfil img {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ======================
+   CONTAINER PRINCIPAL
+====================== */
+.container-principal {
+  display: grid;
+  grid-template-columns: 250px 1fr;
+  grid-template-rows: auto;
+  min-height: calc(100vh - 60px);
+}
+
+/* ======================
+   BARRA LATERAL
+====================== */
+.barra-lateral {
+  background-color: #f9f9f9;
+  padding: 16px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.barra-lateral .links {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 16px;
+  color: #000;
+  text-decoration: none;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.barra-lateral .links:hover,
+.barra-lateral .links.ativo {
+  background-color: #e5e5e5;
+}
+
+.divisor {
+  margin: 8px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+
+/* ======================
+   CONTEÚDO PRINCIPAL
+====================== */
+.conteudo-principal {
+  display: flex;
+  flex-direction: column;
+}
+
+/* FILTROS */
+.filtros {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  background-color: #fff;
+}
+
+.opcoes-filtros {
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 16px;
+  background-color: #f8f8f8;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background 0.2s;
+}
+
+.opcoes-filtros.ativo,
+.opcoes-filtros:hover {
+  background-color: #e5e5e5;
+}
+
+/* CORPO DE VÍDEOS */
+.corpo-videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  background-color: #fff;
+}
+
+/* VÍDEO */
+.video {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.miniatura {
+  width: 100%;
+  border-radius: 4px;
+  object-fit: cover;
+}
+
+.conteudo-video {
+  display: flex;
+  margin-top: 8px;
+  gap: 12px;
+}
+
+.texto-video .titulo-video {
+  font-size: 14px;
+  font-weight: bold;
+  margin-bottom: 4px;
+}
+
+.texto-video .descricao {
+  font-size: 12px;
+  color: #555;
+  margin-bottom: 2px;
+}
+
+/* ======================
+   RESPONSIVO
+====================== */
+@media (max-width: 1024px) {
+  .container-principal {
+    grid-template-columns: 200px 1fr;
+  }
+
+  .busca-input {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .container-principal {
+    grid-template-columns: 1fr;
+  }
+
+  .barra-lateral {
+    display: none; 
+  }
+
+  .busca-input {
+    width: 60%;
+  }
+}

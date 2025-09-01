@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <title>Clone da página do Youtube</title>
+</head>
+<body>
+
+    <!-- MENU DO SITE -->
+    <header class="menu-site">
+        <div class="menu-esquerda">
+            <button class="hamburguer-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <img src="assets/images/youtube.png" alt="Logo Youtube" class="logo">
+        </div>
+
+        <div class="busca-site">
+            <input type="text" class="busca-input" placeholder="Pesquisa...">
+            <button class="busca-btn">
+                <img src="assets/images/busca.png" alt="Buscar">
+            </button>
+        </div>
+
+        <div class="usuario-menu">
+            <img src="assets/images/video.png" alt="Upload" class="icone">
+            <img src="assets/images/sininho.png" alt="Notificações" class="icone">
+            <div class="usuario-perfil">
+                <img src="assets/images/perfil.jpg" alt="Perfil do usuário">
+            </div>
+        </div>
+    </header>
+
+    <div class="container-principal">
+
+        <!-- BARRA LATERAL -->
+        <aside class="barra-lateral">
+            <a href="#" class="links ativo"><img src="assets/images/inicio.PNG" alt="">Início</a>
+            <a href="#" class="links"><img src="assets/images/explorer.png" alt="">Explorer</a>
+            <a href="#" class="links"><img src="assets/images/shorts.png" alt="">Shorts</a>
+            <a href="#" class="links"><img src="assets/images/inscritos.png" alt="">Inscrições</a>
+            <hr class="divisor">
+            <a href="#" class="links"><img src="assets/images/biblioteca.png" alt="">Biblioteca</a>
+            <a href="#" class="links"><img src="assets/images/historico.png" alt="">Histórico</a>
+            <a href="#" class="links"><img src="assets/images/seus-videos.png" alt="">Seus Vídeos</a>
+            <a href="#" class="links"><img src="assets/images/veja-depois.png" alt="">Assistir mais tarde</a>
+            <a href="#" class="links"><img src="assets/images/curtida.png" alt="">Vídeos que gostei</a>
+            <a href="#" class="links"><img src="assets/images/veja-mais.PNG" alt="">Mostrar mais</a>
+        </aside>
+
+        <!-- CONTEÚDO PRINCIPAL -->
+        <main class="conteudo-principal">
+
+            <!-- FILTROS -->
+            <section class="filtros">
+                <button class="opcoes-filtros ativo">Todos</button>
+                <button class="opcoes-filtros">Sheep</button>
+                <button class="opcoes-filtros">HTML</button>
+                <button class="opcoes-filtros">CSS</button>
+                <button class="opcoes-filtros">PHP</button>
+                <button class="opcoes-filtros">JavaScript</button>
+                <button class="opcoes-filtros">DIO</button>
+                <button class="opcoes-filtros">QA</button>
+                <button class="opcoes-filtros">Python</button>
+                <button class="opcoes-filtros">Bootcamp</button>
+                <button class="opcoes-filtros">Scrum</button>
+            </section>
+
+            <!-- VÍDEOS -->
+            <section class="corpo-videos" id="corpo-videos"></section>
+
+<script>
+const videos = [
+    {img: 'assets/images/Image1.png', titulo: 'Geração Tech Unimed - BH - Ciência de Dados', views: '2,1 mil visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image2.png', titulo: 'Scrum Talks', views: '1,6 mil visualizações', tempo: 'Transmitido há 3 dias'},
+    {img: 'assets/images/Image3.png', titulo: 'Machine Learning Avançado - Fast Track', views: '1,7 mil visualizações', tempo: 'Transmitido há 4 dias'},
+    {img: 'assets/images/Image4.png', titulo: 'Global Skills #2 - Project Planning', views: '2,1 mil visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image5.png', titulo: 'Como aprender a programar Python do ZERO', views: '711 visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image6.png', titulo: 'Global Skills #2 - Project Planning', views: '2,1 mil visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image7.png', titulo: 'Como aprender a programar Python do ZERO', views: '711 visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image8.png', titulo: 'Como aprender a programar Python do ZERO', views: '711 visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image1.png', titulo: 'Geração Tech Unimed - BH - Ciência de Dados', views: '2,1 mil visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image2.png', titulo: 'Scrum Talks', views: '1,6 mil visualizações', tempo: 'Transmitido há 3 dias'},
+    {img: 'assets/images/Image3.png', titulo: 'Machine Learning Avançado - Fast Track', views: '1,7 mil visualizações', tempo: 'Transmitido há 4 dias'},
+    {img: 'assets/images/Image4.png', titulo: 'Global Skills #2 - Project Planning', views: '2,1 mil visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image5.png', titulo: 'Como aprender a programar Python do ZERO', views: '711 visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image6.png', titulo: 'Global Skills #2 - Project Planning', views: '2,1 mil visualizações', tempo: 'Transmitido há 2 dias'},
+    {img: 'assets/images/Image7.png', titulo: 'Como aprender a programar Python do ZERO', views: '711 visualizações', tempo: 'Transmitido há 2 dias'}
+];
+
+const container = document.getElementById('corpo-videos');
+
+videos.forEach(video => {
+    const artigo = document.createElement('article');
+    artigo.classList.add('video');
+    artigo.innerHTML = `
+        <img src="${video.img}" alt="Miniatura do vídeo" class="miniatura">
+        <div class="conteudo-video">
+            <div class="texto-video">
+                <h4 class="titulo-video">${video.titulo}</h4>
+                <p class="descricao">${video.views}</p>
+                <p class="descricao">${video.tempo}</p>
+            </div>
+        </div>
+    `;
+    container.appendChild(artigo);
+});
+</script>
+        </main>
+
+    </div>
+
+</body>
+</html>
